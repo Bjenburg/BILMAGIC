@@ -10,7 +10,7 @@ const Footer = () => {
         <footer className="footer">
             <div className="footer__content">
                 <div className="footer__section">
-                    <h3>About ZHIYUAN</h3>
+                    <h3>About BILMAGIC</h3>
                     <p>Your trusted source for quality products. We provide the best shopping experience.</p>
                 </div>
                 <div className="footer__section">
