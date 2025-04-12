@@ -1,14 +1,1 @@
-node_modules/// No code was selected, so a basic Node.js project structure will be generated.
-// Create a new file named 'index.js' and add the following code:
-
-const express = require('express');
-const app = express();
-const port = 3000;
-
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
-
-app.listen(port, () => {
-  console.log(`Server started on port ${port}`);
-});
+node_modules/
