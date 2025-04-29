@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import Footer from '../../components/Footer/Footer';
 import Carousel from '../../components/Carousel/Carousel';
+import DealsSection from '../../components/Deals/DealsSection'; // Import DealsSection
 import './HomePage.scss';
 
 const HomePage = () => {
@@ -92,15 +93,16 @@ const HomePage = () => {
         <>
             <div className="home-page">
                 <Carousel />
+                <DealsSection /> {/* Add DealsSection here */}
                 <div className="content-wrapper">
                     <h1>Welcome to BILMAGIC Store</h1>
-                    
+
                     <section className="product-section">
                         <h2>Top Seller Cues</h2>
                         <div className="product-list">
                             {topSellerCues.map(product => (
-                                <ProductCard 
-                                    key={product._id} 
+                                <ProductCard
+                                    key={product._id}
                                     product={product}
                                     onClick={() => handleProductClick(product._id)}
                                 />
@@ -112,8 +114,8 @@ const HomePage = () => {
                         <h2>New Arrivals</h2>
                         <div className="product-list">
                             {newArrivals.map(product => (
-                                <ProductCard 
-                                    key={product._id} 
+                                <ProductCard
+                                    key={product._id}
                                     product={product}
                                     onClick={() => handleProductClick(product._id)}
                                 />
