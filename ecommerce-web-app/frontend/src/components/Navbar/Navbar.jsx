@@ -8,6 +8,8 @@ const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [cartItemsCount, setCartItemsCount] = useState(0);
     const [activeDropdown, setActiveDropdown] = useState(null);
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -30,6 +32,20 @@ const Navbar = () => {
         setIsMenuOpen(false);
     }, [location]);
 
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollPos = window.pageYOffset;
+            setIsScrolled(currentScrollPos > 50);
+            setPrevScrollPos(currentScrollPos);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [prevScrollPos]);
+
     const handleSearch = (e) => {
         e.preventDefault();
         if (searchQuery.trim()) {
@@ -51,7 +67,7 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="navbar">
+        <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
             <div className="navbar__main">
                 <div className="navbar__logo">
                     <Link to="/">BILMAGIC</Link>

@@ -1,36 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import './ProductCard.scss';
 
-const ProductCard = ({ product }) => {
-    const handleAddToCart = () => {
-        // Add cart functionality here
-        console.log('Adding to cart:', product);
+const ProductCard = ({ product, onClick }) => {
+    const [imageError, setImageError] = useState(false);
+    
+    const handleImageError = () => {
+        console.error('Image failed to load:', product.imageUrl);
+        setImageError(true);
     };
 
     return (
-        <div className="product-card">
-            <Link to={`/product/${product._id}`} className="product-card__image-link">
+        <div className="product-card" onClick={onClick} role="button" tabIndex={0}>
+            <div className="image-container">
                 <img 
-                    src={product.imageUrl} 
-                    alt={product.name} 
-                    className="product-card__image" 
+                    src={product.imageUrl || 'https://m.media-amazon.com/images/I/71EOF5-UrBL._AC_SL1500_.jpg'}
+                    alt={product.name}
+                    onError={handleImageError}
                 />
-            </Link>
-            <div className="product-card__content">
-                <Link to={`/product/${product._id}`} className="product-card__title-link">
-                    <h3 className="product-card__title">{product.name}</h3>
-                </Link>
-                <p className="product-card__price">${product.price.toFixed(2)}</p>
-                <p className="product-card__description">{product.description}</p>
-                <button 
-                    className="product-card__button"
-                    onClick={handleAddToCart}
-                    aria-label={`Add ${product.name} to cart`}
-                >
-                    Add to Cart
-                </button>
+            </div>
+            <div className="product-info">
+                <h3>{product.name}</h3>
+                <p>{product.description}</p>
+                <span className="price">${product.price.toFixed(2)}</span>
             </div>
         </div>
     );
@@ -39,11 +31,12 @@ const ProductCard = ({ product }) => {
 ProductCard.propTypes = {
     product: PropTypes.shape({
         _id: PropTypes.string.isRequired,
-        imageUrl: PropTypes.string.isRequired,
+        imageUrl: PropTypes.string,
         name: PropTypes.string.isRequired,
         price: PropTypes.number.isRequired,
         description: PropTypes.string.isRequired,
     }).isRequired,
+    onClick: PropTypes.func.isRequired,
 };
 
 export default ProductCard;

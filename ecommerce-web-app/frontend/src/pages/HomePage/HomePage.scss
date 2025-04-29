@@ -12,6 +12,15 @@ body {
     position: relative;
     left: 0;
 
+    .carousel {
+        margin-top: 100px; // Match initial navbar height
+        transition: margin-top 0.3s ease;
+
+        @media (max-width: 768px) {
+            margin-top: 70px;
+        }
+    }
+
     .content-wrapper {
         padding: 2rem;
         max-width: 1400px;
@@ -223,6 +232,29 @@ body {
                     font-size: 0.875rem;
                 }
             }
+        }
+    }
+}
+
+.product-section {
+    margin: 2rem 0;
+    
+    h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        color: #333;
+        text-align: center;
+    }
+
+    .product-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 2rem;
+        padding: 0 1rem;
+        
+        @media (max-width: 768px) {
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
         }
     }
 }

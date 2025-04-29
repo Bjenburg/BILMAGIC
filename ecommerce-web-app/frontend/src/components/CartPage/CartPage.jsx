@@ -1,23 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useCart } from '../../context/CartContext';
 import './CartPage.scss';
 
 const CartPage = () => {
-    const [cartItems, setCartItems] = useState([
-        {
-            id: 1,
-            name: 'Luxury Skincare Set',
-            price: 89.99,
-            quantity: 1,
-            imageUrl: 'https://images.unsplash.com/photo-1612817288484-6f916006741a?auto=format&fit=crop&q=80'
-        },
-        {
-            id: 2,
-            name: 'Professional Billiard Cue',
-            price: 299.99,
-            quantity: 2,
-            imageUrl: 'https://ph-test-11.slatic.net/p/c6a4397a7b965bed7dfcd11b5379107f.jpg'
-        }
-    ]);
+    const { cartItems, setCartItems } = useCart();
 
     const handleQuantityChange = (id, delta) => {
         setCartItems((prevItems) =>
