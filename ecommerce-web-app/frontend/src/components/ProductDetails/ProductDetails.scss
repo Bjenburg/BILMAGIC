@@ -1,10 +1,10 @@
 .product-details {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    padding: 2rem;
+    gap: 2rem;
     max-width: 1200px;
-    margin: 80px auto 2rem; // Added top margin to account for fixed navbar
+    margin: 2rem auto;
+    padding: 2rem;
     background: white;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -94,6 +94,7 @@
             gap: 1rem;
             align-items: center;
             flex-wrap: wrap; // Added to handle multiple buttons
+            margin-bottom: 2rem; // Add space before reviews
 
             .quantity-selector {
                 display: flex;
@@ -163,6 +164,138 @@
         grid-template-columns: 1fr;
         gap: 2rem;
         padding: 1rem;
+    }
+}
+
+// Make reviews-section span both columns
+.reviews-section {
+    grid-column: 1 / -1;
+    margin-top: 2rem;
+    border-top: 1px solid #eee;
+    padding-top: 2rem;
+
+    .reviews-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+
+        h2 {
+            font-size: 1.2rem;
+            color: #333;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        .reviews-controls {
+            display: flex;
+            gap: 1rem;
+
+            .filter-button {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                background: #f5f6fa;
+                color: #222;
+                border: none;
+                border-radius: 999px;
+                padding: 0.5rem 1.25rem;
+                font-size: 1rem;
+                font-weight: 500;
+                cursor: pointer;
+                transition: background 0.2s;
+                box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+
+                &:hover {
+                    background: #e6eaf3;
+                }
+            }
+
+            .write-review-btn {
+                background: #0f223a;
+                color: #fff;
+                border: none;
+                border-radius: 999px;
+                padding: 0.5rem 1.5rem;
+                font-size: 1rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: background 0.2s;
+                box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+
+                &:hover {
+                    background: #18325a;
+                }
+            }
+        }
+    }
+
+    .reviews-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        width: 100%;
+
+        .review-card {
+            position: relative;
+            padding: 1.5rem 1.5rem 1rem 1.5rem;
+            border: 1px solid #eee;
+            border-radius: 16px;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+
+            .more-options {
+                position: absolute;
+                top: 1.25rem;
+                right: 1.25rem;
+                background: none;
+                border: none;
+                color: #888;
+                font-size: 1.25rem;
+                cursor: pointer;
+                padding: 0;
+                line-height: 1;
+            }
+
+            .stars {
+                color: #ffc107;
+                font-size: 1.1rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .reviewer-info {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                font-weight: 700;
+                font-size: 1.1rem;
+                margin-bottom: 0.25rem;
+
+                .verified-badge {
+                    color: #22c55e;
+                    font-size: 1rem;
+                }
+            }
+
+            .review-content {
+                color: #444;
+                font-size: 1rem;
+                margin-bottom: 1.25rem;
+                margin-top: 0.5rem;
+            }
+
+            .review-date {
+                color: #888;
+                font-size: 0.95rem;
+                font-weight: 500;
+            }
+        }
+    }
+
+    @media (max-width: 900px) {
+        .reviews-container {
+            grid-template-columns: 1fr;
+        }
     }
 }
 

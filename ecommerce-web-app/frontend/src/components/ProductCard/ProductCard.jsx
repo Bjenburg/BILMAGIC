@@ -14,7 +14,7 @@ const ProductCard = ({ product, onClick }) => {
         <div className="product-card" onClick={onClick} role="button" tabIndex={0}>
             <div className="image-container">
                 <img 
-                    src={product.imageUrl || 'https://m.media-amazon.com/images/I/71EOF5-UrBL._AC_SL1500_.jpg'}
+                    src={product.imageUrl || 'http://www.pericues-int.com/product/img/P-T01%20Dracula-02.jpg'}
                     alt={product.name}
                     onError={handleImageError}
                 />

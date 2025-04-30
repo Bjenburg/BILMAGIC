@@ -14,31 +14,31 @@ const DealsSection = () => {
             id: 1,
             name: 'Billard Clock',
             discount: '-25%',
-            imageUrl: 'https://www.pooldawg.com/media/catalog/product/cache/4c161271b67be4ef33fec657fa2e9598/c/l/clocktuegry3.jpg'
+            imageUrl: 'http://www.pericues-int.com/product/img/P-T01%20Dracula-02.jpg'
         },
         {
             id: 2,
             name: 'Yalekang Mother Ball / White Ball',
             discount: '-15%',
-            imageUrl: 'https://m.media-amazon.com/images/I/71D-qQEKhvL.jpg'
+            imageUrl: 'http://www.pericues-int.com/product/img/P-T01%20Dracula-02.jpg'
         },
         {
             id: 3,
             name: 'Billard Gloves',
             discount: '-40%',
-            imageUrl: 'https://m.media-amazon.com/images/I/61R3H51CBIL.jpg'
+            imageUrl: 'http://www.pericues-int.com/product/img/P-T01%20Dracula-02.jpg'
         },
         {
             id: 4,
             name: 'Feiyang Billard Balls',
             discount: '-25%',
-            imageUrl: 'https://m.media-amazon.com/images/I/71D8IfL4yQL.jpg'
+            imageUrl: 'http://www.pericues-int.com/product/img/P-T01%20Dracula-02.jpg'
         },
         {
             id: 5,
             name: 'Grama Cue Stick',
             discount: '-25%',
-            imageUrl: 'https://www.pooldawg.com/media/wysiwyg/content/lucasi-custom-pool-cues/lucasi-custom-pool-cues.jpg'
+            imageUrl: 'http://www.pericues-int.com/product/img/P-T01%20Dracula-02.jpg'
         }
     ];
 

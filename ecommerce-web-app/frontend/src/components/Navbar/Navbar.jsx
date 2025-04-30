@@ -102,6 +102,21 @@ const Navbar = () => {
                         <FiUserPlus size={20} aria-hidden="true" />
                         <span>Sign Up</span>
                     </Link>
+                    
+                    {/* Add secondary links only in mobile view */}
+                    <div className="navbar__mobile-secondary">
+                        {Object.keys(dropdownData).map((key) => (
+                            <Link 
+                                key={key} 
+                                to={`/${key}`} 
+                                className="navbar__link"
+                            >
+                                {dropdownData[key].title}
+                            </Link>
+                        ))}
+                        <Link to="/contact" className="navbar__link">Contact Us</Link>
+                        <Link to="/about" className="navbar__link">About Us</Link>
+                    </div>
                 </div>
 
                 <button 

@@ -33,7 +33,7 @@ const HomePage = () => {
             name: 'Classic Pool Stick',
             price: 179.99,
             description: 'Traditional design with maple shaft',
-            imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPTnV3Ra3CtAK9kEvuHBWmP7rB4XbgvL3-Ug&s'
+            imageUrl: 'http://www.pericues-int.com/product/img/P-T01%20Dracula-02.jpg'
         },
         {
             _id: '4',

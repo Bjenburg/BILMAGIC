@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { FiFilter } from 'react-icons/fi'; // Add this import
 import { useCart } from '../../context/CartContext';
 import './ProductDetails.scss';
 
@@ -21,8 +22,34 @@ const ProductDetails = () => {
         reviewCount: 450,
         description: 'Introducing the ideal PERI EARL series cues, featuring vibrant maple & point that looks designs, spliced points are structurally tight from the root making it also perfect to play with, aesthetically beautiful and artistic with Uniloc low deflection PPG shaft and radial Pro joint, leaving the players game to an entirely new level.',
         images: [
-            'https://endpoint.ph/cdn/shop/products/Z1_1200x1200.png?v=1615793705',
-            'https://down-ph.img.susercontent.com/file/ph-11134207-7rasm-m1dry5fyebr38f'
+            'http://www.pericues-int.com/product/img/P-T01%20Dracula-02.jpg',
+            'http://www.pericues-int.com/product/img/P-T01%20Dracula-02.jpg'
+        ],
+        reviews: [
+            {
+                id: 1,
+                author: 'Samantha D.',
+                verified: true,
+                rating: 4.5,
+                date: 'August 14, 2023',
+                content: 'I absolutely love this cue! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. Perfect weight distribution and smooth performance.'
+            },
+            {
+                id: 2,
+                author: 'Alex H.',
+                verified: true,
+                rating: 4,
+                date: 'August 15, 2023',
+                content: 'The cue exceeded my expectations! The colors are vibrant and the joint quality is top-notch. Being a UK US delegate myself, I\'m quite particular about quality, and this cue definitely got a thumbs up from me.'
+            },
+            {
+                id: 3,
+                author: 'Ethan K.',
+                verified: true,
+                rating: 4,
+                date: 'August 15, 2023',
+                content: 'This cue is a must-have for anyone who appreciates good design. The workmanship and striking pattern caught my eye, and the fit is perfect. I just love the designer\'s touch in every aspect of this piece.'
+            }
         ]
     };
 
@@ -53,8 +80,7 @@ const ProductDetails = () => {
     };
 
     const handleViewSpecs = () => {
-        // Implement navigation to specs section or modal
-        console.log('View specifications clicked');
+        navigate(`/product/${id}/specifications`);
     };
 
     return (
@@ -116,6 +142,39 @@ const ProductDetails = () => {
                             View Specifications
                         </button>
                     </div>
+                </div>
+            </div>
+
+            <div className="reviews-section">
+                <div className="reviews-header">
+                    <h2>Rating & Reviews</h2>
+                    <div className="reviews-controls">
+                        <button className="filter-button">
+                            <FiFilter /> Latest
+                        </button>
+                        <button className="write-review-btn">
+                            Write a Review
+                        </button>
+                    </div>
+                </div>
+                <div className="reviews-container">
+                    {product.reviews.map((review) => (
+                        <div key={review.id} className="review-card">
+                            <button className="more-options">•••</button>
+                            <div className="reviewer-info">
+                                <h3>
+                                    {review.author}
+                                    {review.verified && <span className="verified-badge">✓</span>}
+                                </h3>
+                            </div>
+                            <div className="stars">
+                                {'★'.repeat(Math.floor(review.rating))}
+                                {'☆'.repeat(5 - Math.floor(review.rating))}
+                            </div>
+                            <p className="review-content">{review.content}</p>
+                            <div className="review-date">Posted on {review.date}</div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>
